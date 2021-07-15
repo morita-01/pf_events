@@ -20,13 +20,13 @@ class Admins::EventsController < ApplicationController
     def create
         @event = Event.new(event_params)
         @event.save
-        redirect_to admin_event_path(@event)
+        redirect_to admins_events_path
     end
     #イベント会場編集処理
     def update
         @event = Event.find(params[:id])
         @event.update(event_params)
-        redirect_to admin_event_path(@event)
+        redirect_to admins_event_path(@event)
     end
     #イベント会場削除処理
     def destroy

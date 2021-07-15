@@ -1,17 +1,19 @@
 <h1>イベント会場一覧</h1>
 
-<%= link_to "新規登録", new_admin_event_path %>
+<%= link_to "新規登録", new_admins_event_path %>
 <table>
     <tr>
         <th>イベント会場ID</th>
         <th>イベント会場名</th>
         <th>住所</th>
+        <th>サイトURL</th>
     </tr>
     <% @events.each do |event| %>
     <tr>
         <td><%= event.id %></td>
-        <td><%= event.eventname %></td>
+        <td><%= link_to event.eventname, admins_event_path(event) %></td>
         <td><%= event.address %></td>
+        <td><%= event.siteurl %></td>
     </tr>
     <% end %>
 </table>

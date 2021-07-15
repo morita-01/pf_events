@@ -1,14 +1,31 @@
 <h1>イベント会場詳細</h1>
+<input id="address" type="textbox" value="<%= @event.address %>">
+<input type="button" value="検索" onclick="codeAddress()">
+<div>
+<script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
 
 <table>
     <tv>
-        <div><%= attachment_image_tag(@event, :image, size: "300×300", fallback: "no_image.jpg") %></div>
+        <div><%= attachment_image_tag @event, :image, :fill, 300,300, fallback: "no_image.jpg" %></div>
         <div>
             <label>イベント会場名</label><%= @event.eventname %>
             <label>住所</label><%= @event.address %>
-            <label>サイトURL</label><%= @event.siteurl %>
+            <label>サイトURL</label><%= link_to @event.siteurl, @event.siteurl %>
             <label>イベント会場概要欄</label><%= @event.comment %>
         </div>
     </tr>
 </table>
-<%= link_to '編集', edit_admins_event_path(@event) %>
+  <% if @event.favorited_by?(current_user) %>
+    <p>
+      <%= link_to event_favorites_path(@event), method: :delete do %>
+        ♥<%= @event.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to event_favorites_path(@event), method: :post do %>
+        ♡<%= @event.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+<%= link_to '編集', edit_publics_event_path(@event) %>

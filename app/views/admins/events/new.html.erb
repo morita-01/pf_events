@@ -1,28 +1,28 @@
 <h1>イベント会場登録</h1>
 
 <div>
-    <%= form_with model: @event, url: admin_events_path, method: :post, local: true do |f| %>
+    <%= form_with model: @event, url: admins_events_path, method: :post, local: true do |f| %>
     <div>
         <label>イベント会場画像：</label>
         <%= f.attachment_field :image %>
     </div>
     <div>
-        <label>イベント名：</label>
+        <label>イベント会場名：</label>
         <%= f.text_field :eventname %>
     </div>
     <div>
-        <label>住所</label>
+        <label>住所：</label>
         <%= f.text_area :address %>
     </div>
     <div>
-        <label>サイトURL</label>
+        <label>サイトURL：</label>
         <%= f.text_field :siteurl %>
     </div>
     <div>
-        <label>イベント会場概要欄</label>
+        <label>イベント会場概要欄：</label>
         <%= f.text_area :comment %>
     </div>
-    <% f.submit '新規登録' %>
+    <%= f.submit '新規登録' %>
     <% end %>
 </div>
     

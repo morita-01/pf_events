@@ -2,11 +2,11 @@
 
 <table>
     <tv>
-        <div><%= attachment_image_tag(@event, :image, size: "300×300", fallback: "no_image.jpg") %></div>
+        <div><%= attachment_image_tag(@event, :image, size: "100×100", fallback: "no_image.jpg") %></div>
         <div>
             <label>イベント会場名</label><%= @event.eventname %>
             <label>住所</label><%= @event.address %>
-            <label>サイトURL</label><%= @event.siteurl %>
+            <label>サイトURL</label><%= link_to @event.siteurl, @event.siteurl %>
             <label>イベント会場概要欄</label><%= @event.comment %>
         </div>
     </tr>

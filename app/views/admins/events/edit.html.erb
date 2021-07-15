@@ -1,7 +1,7 @@
 <h1>イベント会場編集</h1>
 
 <div>
-    <%= form_with model: @event, url: admin_event_path(@event), method: :patch, local: true do |f| %>
+    <%= form_with model: @event, url: admins_event_path(@event), method: :patch, local: true do |f| %>
     <div>
         <label>イベント会場画像：</label>
         <%= f.attachment_field :image %>

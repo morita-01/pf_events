@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+// $(document).on('turbolinks:load', function(){
+  
+//   if ($("#target").length < 1 || $("#ddress").length < 1){
+//     return;
+//   }
+  
+//   codeAddress();
+// });

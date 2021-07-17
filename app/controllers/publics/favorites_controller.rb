@@ -1,4 +1,4 @@
-class FavoritesController < ApplicationController
+class Publics::FavoritesController < ApplicationController
   def create
     event = Event.find(params[:event_id])
     favorite = current_user.favorites.new(event_id: event.id)

@@ -14,6 +14,8 @@ function initMap(){
     position: centerp,
     map: map
   });
+  
+  codeAddress()
 }
 
 function codeAddress(){

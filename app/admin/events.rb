@@ -1,4 +1,5 @@
 ActiveAdmin.register Event do
+
 permit_params :eventname, :address, :siteurl, :comment, :image
 #イベント会場一覧の項目を出力する
   index do
@@ -41,4 +42,14 @@ permit_params :eventname, :address, :siteurl, :comment, :image
     end
     f.actions
   end
+
+
+  #controller do
+  # def create
+  #  @event = Event.new(permitted_params[:event])
+    #byebug
+  #  @event.save!
+  # end
+  #end
+  
 end

@@ -16,10 +16,6 @@
           <li><%= link_to ' マイページ',publics_user_path(current_user) %></li>
           <li><%= link_to ' イベント会場一覧',publics_events_path %></li>
           <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete %></li>
-        <%# elsif admin_user_signed_in? %>
-          <li><%#= link_to ' イベント会場⼀覧 ',admins_events_path %></li>
-          <li><!--%= link_to ' ユーザ⼀覧 ', admins_users_path %--></li>
-          <li><%#= link_to ' ログアウト', destroy_admin_session_path, method: :delete %></li>
         <% else %>
 
         <!--ログインしてないとき-->

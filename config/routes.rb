@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   namespace :publics do
     resources :users, only:[:show,:edit,:update]
     
-    resources :events, only:[:index, :show] do
+    resources :events, only:[:index, :show, :new, :edit, :create, :update] do
       resource :favorites, only:[:create, :destroy]
     end
   end

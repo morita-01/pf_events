@@ -33,6 +33,10 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  
+  # ここに移動
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -57,9 +61,6 @@ gem "refile-mini_magick"
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
-
-gem 'pry-rails'
-
 
 gem 'dotenv-rails'
 group :production do

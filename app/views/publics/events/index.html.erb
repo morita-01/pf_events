@@ -1,6 +1,13 @@
 <h1>イベント会場一覧</h1>
 
-<%#= link_to "新規登録", new_publics_event_path %>
+<%= form_with url: search_path, method: :get, local: :true do |f| %>
+  <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","start_match"], ["後方一致","back_match"], ["部分一致","partial_match"]]) %>
+  <%= f.text_field :word %>
+  <%= f.submit "検索" %>
+  <!--%= submit_tag "Search", :title => nil %-->
+<% end %>
+
+<%= link_to "新規登録", new_publics_event_path %>
 
     <% @events.each do |event| %>
     <div>
@@ -11,12 +18,5 @@
     </div>
     <% end %>
     
-<h2>gmap</h2>
-<div id="target"></div>
-<div id="address" value=""></div>
-<!--style>#map {height: 600px;width: 600px;}</style-->
-
-
-<!--script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script-->
 
 

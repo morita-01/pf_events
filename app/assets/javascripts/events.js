@@ -2,22 +2,25 @@ let map
 let geocoder
 let centerp = {lat: 33.60639, lng: 130.41806}
 
+//マップを表示する
 function initMap(){
   geocoder = new google.maps.Geocoder()
 
   map = new google.maps.Map(document.getElementById('target'), {
     center: centerp,
-    zoom: 12,
-});
+    zoom: 17,
+  });
 
   marker = new google.maps.Marker({
     position: centerp,
     map: map
   });
   
+  //住所を地図の初期値に設定
   codeAddress()
 }
 
+//地図の住所の取得とマーカーを指定
 function codeAddress(){
   let inputAddress = document.getElementById('address').value;
 

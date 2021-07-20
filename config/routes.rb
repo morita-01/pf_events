@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     
     resources :events, only:[:index, :show, :new, :edit, :create, :update] do
       resource :favorites, only:[:create, :destroy]
+      resources :event_comments, only: [:create, :destroy]
     end
   end
   
@@ -46,5 +47,6 @@ Rails.application.routes.draw do
   #post 'publics/users' => 'publics/registrations#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root to:'homes#top'
+    get 'search' => 'searches#search'
     #get 'home/about' => 'homes#about'
 end

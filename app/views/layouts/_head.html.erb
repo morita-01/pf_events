@@ -9,7 +9,7 @@
 
     
     <div class="navbar_list">
-      <!--ul class="navbar"-->
+      <ul class="navbar">
       　<% if user_signed_in? %>
           <%= "ようこそ、" %><%= current_user.name %><%= "さん！！" %>
 
@@ -25,7 +25,7 @@
           <li><%= link_to ' 新規登録', new_user_registration_path %></li>
           <li><%= link_to ' ログイン', new_user_session_path %></li>
         <% end %>
-    　<!--/ul-->
+    　</ul>
 　　</div>
 　</header>
 </html>

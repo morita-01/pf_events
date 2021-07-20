@@ -1,3 +1,11 @@
 // Place all the styles related to the publics/events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.eventall{
+  display: flex;
+  justify-content: flex-end;
+  list-style: none;
+  right: 100px;
+}

@@ -10,7 +10,7 @@
 <%= link_to "新規登録", new_publics_event_path %>
 
     <% @events.each do |event| %>
-    <div>
+    <div class="eventall">
         <div><%= attachment_image_tag event, :image, :fill, 300,300 %></div>
         <div><%= link_to event.eventname, publics_event_path(event) %></div>
         <div><%= link_to event.siteurl, event.siteurl %></div>

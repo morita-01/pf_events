@@ -5,7 +5,17 @@
 
 .eventall{
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
   list-style: none;
-  right: 100px;
+  //right: 100px;
+  position: relative;
+}
+
+.p_index{
+    display: inline-block;
+    text-align:center;
+    //width: 50px;
+    //margin-left: 10%;
+    //margin-right: 9%;
+    //margin-top: 40px;
 }

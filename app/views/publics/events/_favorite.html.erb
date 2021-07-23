@@ -1,0 +1,14 @@
+<%# いいねの切り替えボタン %>
+<% if event.favorited_by?(current_user) %>
+  <p>
+    <%= link_to publics_event_favorites_path(event), method: :delete, remote: true do %><%# remote: trueを設定することで、ajaxを実装(今回は非同期通信)することが出来ます。 %>
+      ♥<%= event.favorites.count %> いいね
+    <% end %>
+  </p>
+<% else %>
+  <p>
+    <%= link_to publics_event_favorites_path(event), method: :post, remote: true do %>
+      ♡<%= event.favorites.count %> いいね
+    <% end %>
+  </p>
+<% end %>

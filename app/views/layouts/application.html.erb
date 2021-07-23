@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <div class="cover"></div>
   <head>
     <title>PfEvents</title>
     <%= csrf_meta_tags %>
@@ -8,10 +7,12 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
-    <%= render 'layouts/head' %>
-    <!--div class="cover"></div--><%= yield %>
-    <%= render 'layouts/foot' %>
-  </body>
+  
+  <!--div class="container"-->
+    <body>
+      <%= render 'layouts/head' %>
+      <div class="jumbotron jumbotron-fluid"><%= yield %></div>
+      <%= render 'layouts/foot' %>
+    </body>
+  <!--/div-->
 </html>

@@ -33,7 +33,7 @@ header {
   display: flex;
   justify-content: flex-end;
   list-style: none;
-  right: 100px;
+  //right: 100px;
 }
 
 .navbar li {
@@ -44,6 +44,11 @@ header {
   border-bottom: 1px solid #FFCCFF;
 }
 
+.jumbotron {
+  background-image: url("../kaijo.jpg");
+  background-size: cover;
+  background-position: center 60%;
+}
 //.cover{
 //  background-image:  image-url(‘kaijo.jpg’);
 //  background-size:  cover;

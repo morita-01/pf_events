@@ -4,14 +4,14 @@ class Publics::EventCommentsController < ApplicationController
     comment = current_user.event_comments.new(event_comment_params)
     comment.event_id = @event.id
     comment.save
-    redirect_to request.referer
+    #redirect_to request.referer
   end
   
   def destroy
     @comment = EventComment.find(params[:id])
     @event = @comment.event
     @comment.destroy
-    redirect_to request.referer
+    #redirect_to request.referer
   end
   
   private

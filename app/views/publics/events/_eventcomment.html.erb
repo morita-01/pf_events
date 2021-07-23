@@ -1,0 +1,6 @@
+<% event.event_comments.each do |event_comment| %>
+  <%= event_comment.eventcomment %>
+  <% if event_comment.user == current_user %>
+    <%= link_to "Destroy", publics_event_event_comment_path(event, event_comment), method: :delete, class: "btn btn-sm btn-danger destroy_book_33853",remote: true %>
+  <% end %>
+<% end %>

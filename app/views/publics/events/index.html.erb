@@ -1,24 +1,30 @@
-<h1>イベント会場一覧</h1>
-
-<%= form_with url: search_path, method: :get, local: :true do |f| %>
-  <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","start_match"], ["後方一致","back_match"], ["部分一致","partial_match"]]) %>
-  <%= f.text_field :word %>
-  <%= f.submit "検索" %>
-  <!--%= submit_tag "Search", :title => nil %-->
-<% end %>
-
-<%= link_to "新規登録", new_publics_event_path %>
-
-    <% @events.each do |event| %>
-    <div class="eventall">
-      <div class="p_index">
+<div class="container">
+  <h1>イベント会場一覧</h1>
+  
+  <%= form_with url: search_path, method: :get, local: :true do |f| %>
+    <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","start_match"], ["後方一致","back_match"], ["部分一致","partial_match"]]) %>
+    <%= f.text_field :word %>
+    <%= f.submit "検索" %>
+    <!--%= submit_tag "Search", :title => nil %-->
+  <% end %>
+  
+  <% if user_signed_in? %>
+    <%= link_to "イベント会場登録", new_publics_event_path %></br>
+  <% end %>
+  
+  <% @events.each do |event| %>
+    <div class="d-inline-flex p-2 bd-highlight .col-6 .col-sm-3">
+      <!--div class="p_index"-->
+      <!--div class="eventall"-->
+        <div class="p-2 bd-highlight">
         <div><%= attachment_image_tag event, :image, :fill, 300,300 %></div>
         <div><%= link_to event.eventname, publics_event_path(event) %></div>
         <div><%= link_to event.siteurl, event.siteurl %></div>
         <div>ここがいいね</div>
-      </div>
+        </div>
+      <!--/div-->
     </div>
-    <% end %>
-    
+  <% end %>
+</div>
 
 

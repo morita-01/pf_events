@@ -9,7 +9,7 @@
   <% end %>
   
   <% if user_signed_in? %>
-    <%= link_to "イベント会場登録", new_publics_event_path %></br>
+    <%= link_to "イベント会場登録", new_publics_event_path , class: "btn btn-success" %></br>
   <% end %>
   
   <% @events.each do |event| %>
@@ -20,7 +20,7 @@
         <div><%= attachment_image_tag event, :image, :fill, 300,300 %></div>
         <div><%= link_to event.eventname, publics_event_path(event) %></div>
         <div><%= link_to event.siteurl, event.siteurl %></div>
-        <div>ここがいいね</div>
+        <div>♥<%= event.favorites.count %> いいね</div>
         </div>
       <!--/div-->
     </div>

@@ -10,9 +10,11 @@
   
   <!--div class="container"-->
     <body>
-      <%= render 'layouts/head' %>
-      <div class="jumbotron jumbotron-fluid"><%= yield %></div>
-      <%= render 'layouts/foot' %>
+      <div class="jumbotron jumbotron-fluid">
+        <%= render 'layouts/head' %>
+        <%= yield %>
+        <%= render 'layouts/foot' %>
+      </div>
     </body>
   <!--/div-->
 </html>

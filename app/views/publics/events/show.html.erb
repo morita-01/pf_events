@@ -1,6 +1,8 @@
 <div class="container">
   <h1>イベント会場詳細</h1>
-  
+  <% if user_signed_in? %>
+    <%= link_to '編集', edit_publics_event_path(@event) , class: "btn btn-success" %>
+  <% end %>
   <div class="row">
       <div class="col-lg-6">
         <div><%= attachment_image_tag @event, :image, :fill, 500,500, fallback: "no_image.jpg" %></div>
@@ -9,19 +11,19 @@
         <!--div class="p-2 bd-highlight"-->
         <div class="d-flex flex-column bd-highlight mb-3">
           <div class="p-2 bd-highlight">
-            <label>イベント会場名</label></br>
+            <label class="lb">イベント会場名</label></br>
             <%= @event.eventname %>
           </div>
           <div class="p-2 bd-highlight">
-            <label>住所</label></br>
+            <label class="lb">住所</label></br>
             <%= @event.address %>
           </div>
           <div class="p-2 bd-highlight">
-            <label>サイトURL</label></br>
-            <%= link_to @event.siteurl, @event.siteurl %>
+            <label class="lb">サイトURL</label></br>
+            <%= link_to @event.siteurl, @event.siteurl, target: :_blank, rel: "noopener noreferrer" %>
           </div>
           <div class="p-2 bd-highlight">
-            <label>イベント会場概要欄</label></br>
+            <label class="lb">イベント会場概要欄</label></br>
             <%= @event.comment %>
           </div>
         </div>
@@ -46,11 +48,12 @@
           <%# いいねの部分テンプレートeventフォルダの_favorite.html.erbを参照 %>
           <%= render 'publics/events/favorite', event: @event %>
         </div>
-        <div id="comments_area">
+        <p>コメント</p>
+        <div id="comments_area" class="scroll">
           <%= render 'publics/events/eventcomment', event: @event %>
         </div>
     
-        <%= form_with model:@event_comment, url:publics_event_event_comments_path(@event),local: false do |f| %> 
+        <%= form_with model:@event_comment, url:publics_event_event_comments_path(@event.id),local: false do |f| %> 
         <div class="form-group">
           <div class="field_with_errors">
             <label for="event_title">コメント</label>
@@ -61,7 +64,6 @@
           <%= f.submit '送信', class: "btn btn-success" %>
         </div>
         <% end %>
-        <%= link_to '編集', edit_publics_event_path(@event) %>
       <% else %>
         <%= @event.favorites.count %> いいね
         <%= render 'publics/events/eventcomment', event: @event %>

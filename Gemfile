@@ -68,3 +68,5 @@ group :production do
 end
 
 gem 'active_skin'
+
+gem 'kaminari','~> 1.2.1'

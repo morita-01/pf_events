@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html>
+  <!--div class="container"-->
 　<header>
-　　<div class="logo">
-    　　<%= link_to root_path do %>
-    　　<!--%= image_tag "logo1.jpg" %-->
-    　　<% end %>
-　　</div>
 
-    
     <div class="navbar_list">
-      <ul class="navbar navbar-dark bg-primary">
+      <ul class="navbar navbar-dark bg-warning">
+        <div class="logo">
+          <%= link_to root_path do %>
+            <li><%= image_tag "event.png" ,class: "sized" %></li>
+          <% end %>
+        </div>
       　<% if user_signed_in? %>
-          <%= "ようこそ、" %><%= current_user.name %><%= "さん！！" %>
+          <li><%= "ようこそ、" %><%= current_user.name %><%= "さん！！" %><%= attachment_image_tag current_user, :profile_image, :fill, 50,50 %></li>
 
-          <li><%= link_to ' マイページ',publics_user_path(current_user) %></li>
-          <li><%= link_to ' イベント会場一覧',publics_events_path %></li>
-          <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to ' マイページ', publics_user_path(current_user), class: "btn btn-info" %></li>
+          <li><%= link_to ' イベント会場一覧',publics_events_path, class: "btn btn-info" %></li>
+          <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-info" %></li>
         <% else %>
 
         <!--ログインしてないとき-->
 
-          <!--li><!--%= link_to ' About', home_about_path %></li-->
-          <li><%= link_to ' イベント会場一覧', publics_events_path %></li>
-          <li><%= link_to ' 新規登録', new_user_registration_path %></li>
-          <li><%= link_to ' ログイン', new_user_session_path %></li>
+          <li><!--%= link_to ' About', home_about_path %--></li>
+          <li><%= link_to ' イベント会場一覧', publics_events_path,  class: "btn btn-info"%></li>
+          <li><%= link_to ' 新規登録', new_user_registration_path,  class: "btn btn-info"%></li>
+          <li><%= link_to ' ログイン', new_user_session_path,  class: "btn btn-info"%></li>
         <% end %>
     　</ul>
 　　</div>
 　</header>
+　<!--/div-->
 </html>

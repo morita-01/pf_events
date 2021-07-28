@@ -1,27 +1,38 @@
 <div class="container">
     <h1>イベント会場登録</h1>
-    
+    <% if @event.errors.any? %><!-- @eventのエラー情報チェック -->
+      <div id="error_explanation">
+        <!-- 下記は@eventのエラーの数をカウントして数値を出力 -->
+        <h3><%= @event.errors.count %>errors prohibited this event from being saved:</h3>
+        <!-- @eventのエラーメッセージを表示する -->
+        <ul>
+          <% @event.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
     <div>
         <%= form_with model: @event, url: publics_events_path, method: :post, local: true do |f| %>
-        <div>
-            <label>イベント会場画像：</label>
-            <%= f.attachment_field :image %>
+        <div class="row">
+            <div class="col-lg-3"><label class="lb">イベント会場画像：</label></div>
+            <div class="col-lg-9"><%= f.attachment_field :image %></div>
         </div>
-        <div>
-            <label>イベント会場名：</label>
-            <%= f.text_field :eventname %>
+        <div class="row">
+            <div class="col-lg-3"><label class="lb">イベント会場名：</label></div>
+            <div class="col-lg-9"><%= f.text_field :eventname %></div>
         </div>
-        <div>
-            <label>住所：</label>
-            <%= f.text_area :address %>
+        <div class="row">
+            <div class="col-lg-3"><label class="lb">住所：</label></div>
+            <div class="col-lg-8"><%= f.text_area :address %></div>
         </div>
-        <div>
-            <label>サイトURL：</label>
-            <%= f.text_field :siteurl %>
+        <div class="row">
+            <div class="col-lg-3"><label class="lb">サイトURL：</label></div>
+            <div class="col-lg-9"><%= f.text_field :siteurl %></div>
         </div>
-        <div>
-            <label>イベント会場概要欄：</label>
-            <%= f.text_area :comment %>
+        <div class="row">
+            <div class="col-lg-3"><label class="lb">イベント会場概要欄：</label></div>
+            <div class="col-lg-9"><%= f.text_area :comment %></div>
         </div>
         <%= f.submit '新規登録' %>
         <% end %>

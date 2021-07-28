@@ -1,6 +1,8 @@
 class Publics::EventsController < ApplicationController
+    before_action :authenticate_user!, only: [:new, :edit, :create, :update]
+    
     def index
-        @events = Event.all
+        @events = Event.page(params[:page]).reverse_order
     end
     
     def show
@@ -18,20 +20,38 @@ class Publics::EventsController < ApplicationController
     #イベント会場登録処理
     def create
         @event = Event.new(event_params)
-        @event.save
-        redirect_to publics_events_path
+        if @event.save
+            redirect_to publics_events_path
+        else
+            render :new
+        end
     end
     #イベント会場編集処理
     def update
         @event = Event.find(params[:id])
-        @event.update(event_params)
-        redirect_to publics_event_path(@event)
+        if @event.update(event_params)
+            redirect_to publics_event_path(@event)
+        else
+            render :edit
+        end
     end
     #イベント会場削除処理
     def destroy
         @event = Event.find(params[:id])
         @event.destroy
         redirect_to publics_events_path
+    end
+    
+    def search
+        search = params[:search]
+        word = params[:word]
+        
+        if word.empty?
+          @events = Event.page(params[:page]).reverse_order
+        else
+          @events = Event.looks(search, word).page(params[:page]).reverse_order
+        end
+        render :index
     end
     
     private

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div style="text-align:center">
+        <!--div class="main-visual"-->
+          <!--div class="main-visual-content"-->
+            <p class="main-visual-text">
+            イベント会場検索にようこそ！<br>
+            このサイトは、イベント会場情報収集するサイトになります。<br>
+            会員でない方もイベント会場情報の閲覧はできますが、<br>
+            イベント会場を登録には会員登録が必要になります。
+            </p>
+          <!--/div-->
+        <!--/div-->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <% @events.each do |event| %>
+      <div class="d-inline-flex p-2 bd-highlight .col-6 .col-sm-3">
+        <!--div class="p_index"-->
+        <!--div class="eventall"-->
+          <div class="p-2 bd-highlight">
+          <div><%= attachment_image_tag event, :image, :fill, 300,300 %></div>
+          <div class="lb"><%= link_to event.eventname, publics_event_path(event) %></div>
+          <div class="lb"><%= link_to event.siteurl, event.siteurl %></div>
+          <div>♥<%= event.favorites.count %> いいね</div>
+          </div>
+        <!--/div-->
+      </div>
+    <% end %>
+    <div style="text-align:right">
+      <%= link_to '全てのイベント会場を⾒る', publics_events_path %>
+    </div>
+  </div>
+</div>

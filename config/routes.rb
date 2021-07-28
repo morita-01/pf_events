@@ -35,6 +35,9 @@ Rails.application.routes.draw do
     resources :users, only:[:show,:edit,:update]
     
     resources :events, only:[:index, :show, :new, :edit, :create, :update] do
+      collection do
+         get 'search' => 'events#search'
+      end
       resource :favorites, only:[:create, :destroy]
       resources :event_comments, only: [:create, :destroy]
     end
@@ -47,6 +50,7 @@ Rails.application.routes.draw do
   #post 'publics/users' => 'publics/registrations#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root to:'homes#top'
-    get 'search' => 'searches#search'
+    #get 'search' => 'searches#search'
+ 
     #get 'home/about' => 'homes#about'
 end

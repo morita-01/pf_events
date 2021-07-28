@@ -24,30 +24,46 @@
   box-sizing: border-box;
 }
 
+body{
+  color: yellow;
+  a,a:link, a:visited {
+    color: pink;
+  }
+  
+}
+
+
+
 header {
   widht: max;
   height: 100px;
 }
 
-/*.navbar{
-  //right: 100px;
-}*/
+
+img.sized {
+  width: 50%;
+  height: 50%;
+}
 
 .navbar {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   list-style: none;
+  align-items: center;
   li {
+    a,a:link, a:visited {
+      color: white;
+    }
     padding: 0 10px;
     margin-top: 30px;
-    margin-left: 100px;
+    //margin-left: 100px;
     list-style: none;
-    border-bottom: 1px solid #FFCCFF;
+    //border-bottom: 1px solid #FFCCFF;
   }
 }
 
 .jumbotron {
-  background-image: url("../kaijo.jpg");
+  background-image: image-url("kaijo.jpg");
   background-size: cover;
   background-position: center 60%;
 }
@@ -55,3 +71,21 @@ header {
 //  background-image:  image-url(‘kaijo.jpg’);
 //  background-size:  cover;
 //}
+
+$main-color:red;
+ h1{
+ 	color:$main-color;
+ }
+ h2{
+ 	color:$main-color;
+ }
+
+
+
+
+/*.lb {
+background-color: #efefef;
+font-size: 20px;
+color: #eaff00;
+}*/
+

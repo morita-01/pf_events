@@ -6,6 +6,23 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      user: "ユーザ"
+      event: "イベント"
+      admin_user: "管理者ユーザ"
+    attributes:
+      user:
+        name: "お名前"
+        mail: "メールアドレス"
+        profile_image: "プロフィール画像"
+      event:
+        eventname: "イベント会場名"
+        address: "イベント会場住所"
+        comment: "サイトURL"
+        siteurl: "イベント会場概要欄"
+        image: "イベント会場画像"
+      admin_user:
+        email: "メールアドレス"
   date:
     abbr_day_names:
     - 日

@@ -1,7 +1,7 @@
 <div class="container">
   <h1>イベント会場一覧</h1>
   
-  <%= form_with url: search_path, method: :get, local: :true do |f| %>
+  <%= form_with url: search_publics_events_path, method: :get, local: :true do |f| %>
     <%= f.select :search, options_for_select([["完全一致","perfect_match"], ["前方一致","start_match"], ["後方一致","back_match"], ["部分一致","partial_match"]]) %>
     <%= f.text_field :word %>
     <%= f.submit "検索" %>
@@ -18,13 +18,14 @@
       <!--div class="eventall"-->
         <div class="p-2 bd-highlight">
         <div><%= attachment_image_tag event, :image, :fill, 300,300 %></div>
-        <div><%= link_to event.eventname, publics_event_path(event) %></div>
-        <div><%= link_to event.siteurl, event.siteurl %></div>
-        <div>♥<%= event.favorites.count %> いいね</div>
+        <div class="lb"><%= link_to event.eventname, publics_event_path(event) %></div>
+        <div class="lb"><%= link_to event.siteurl, event.siteurl , target: :_blank, rel: "noopener noreferrer"%></div>
+        <div class="favorite">♥<%= event.favorites.count %> いいね</div>
         </div>
       <!--/div-->
     </div>
   <% end %>
+  <%= paginate @events %>
 </div>
 
 

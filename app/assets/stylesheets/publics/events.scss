@@ -22,3 +22,29 @@
 .d-inline-flex p-2 bd-highlight{
   
 }
+
+.comments_area{
+  width: 400px;
+  height: 200px; /* これを追加 */
+}
+.scroll{
+  overflow: scroll;
+  height: 200px; 
+  overflow-x: hidden;
+}
+
+  .breakWord {
+    word-break: break-word;
+  }
+
+
+.d-button{
+  width: 120px;
+}
+$label-color:yellow;
+label{
+  color:label-color;
+}
+.favorite{
+  color: red;
+}

@@ -1,7 +1,7 @@
 class Publics::EventCommentsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
-    comment = current_user.event_comments.new(event_comment_params)
+    comment = current_user.event_comments.new({eventcomment: params[:eventcomment]})
     comment.event_id = @event.id
     comment.save
     #redirect_to request.referer
@@ -15,8 +15,8 @@ class Publics::EventCommentsController < ApplicationController
   end
   
   private
-  def event_comment_params
+  #def event_comment_params
     #binding.pry
-    params.permit(:eventcomment)
-  end
+    #params.require(:event_comment).permit(:eventcomment)
+  #end
 end

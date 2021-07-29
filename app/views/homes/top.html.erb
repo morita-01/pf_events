@@ -4,10 +4,13 @@
       <div style="text-align:center">
         <!--div class="main-visual"-->
           <!--div class="main-visual-content"-->
-            <p class="main-visual-text">
-            イベント会場検索にようこそ！<br>
-            このサイトは、イベント会場情報収集するサイトになります。<br>
-            会員でない方もイベント会場情報の閲覧はできますが、<br>
+            <p class="main-visual-text fa-lg">
+            イベント会場検索にようこそ！</br>
+            </br>
+            このサイトは、イベント会場情報収集するサイトになります。</br>
+            </br>
+            会員でない方もイベント会場情報の閲覧はできますが、</br>
+            </br>
             イベント会場を登録には会員登録が必要になります。
             </p>
           <!--/div-->
@@ -22,9 +25,9 @@
         <!--div class="eventall"-->
           <div class="p-2 bd-highlight">
           <div><%= attachment_image_tag event, :image, :fill, 300,300 %></div>
-          <div class="lb"><%= link_to event.eventname, publics_event_path(event) %></div>
-          <div class="lb"><%= link_to event.siteurl, event.siteurl %></div>
-          <div>♥<%= event.favorites.count %> いいね</div>
+          <div class="fa-lg"><%= link_to event.eventname, publics_event_path(event) %></div>
+          <div ><%= link_to event.siteurl, event.siteurl %></div>
+          <div class="favo">♥<%= event.favorites.count %> いいね</div>
           </div>
         <!--/div-->
       </div>

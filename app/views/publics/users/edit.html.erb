@@ -1,9 +1,9 @@
 <div class="container">
-  <h2>ユーザ情報編集</h2>
+  <h1>ユーザ情報編集</h1>
   <% if @user.errors.any? %><!-- @userのエラー情報チェック -->
     <div id="error_explanation">
       <!-- 下記は@userのエラーの数をカウントして数値を出力 -->
-      <h3><%= @user.errors.count %>errors prohibited this user from being saved:</h3>
+      <h2><%= @user.errors.count %>件のエラーがあります。</h2><!--errors prohibited this user from being saved:-->
       <!-- @userのエラーメッセージを表示する -->
       <ul>
         <% @user.errors.full_messages.each do |message| %>

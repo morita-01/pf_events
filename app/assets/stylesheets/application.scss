@@ -27,7 +27,10 @@
 body{
   color: yellow;
   a,a:link, a:visited {
-    color: pink;
+    color: #F45DBF;
+    .fa{
+      color: red;
+    }
   }
   
 }
@@ -50,6 +53,7 @@ img.sized {
   justify-content: flex-start;
   list-style: none;
   align-items: center;
+  color: black;
   li {
     a,a:link, a:visited {
       color: white;
@@ -73,13 +77,24 @@ img.sized {
 //}
 
 $main-color:red;
- h1{
- 	color:$main-color;
- }
  h2{
  	color:$main-color;
  }
+#error_explanation{
+  color:$main-color;
+  font-size: 1.2em;
+}
+#favorite{
+  color: $main-color;
+}
+.favo{
+  color: $main-color;
+}
 
+
+h1{
+ 	color: #00ffff;
+}
 
 
 

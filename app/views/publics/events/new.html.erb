@@ -3,7 +3,7 @@
     <% if @event.errors.any? %><!-- @eventのエラー情報チェック -->
       <div id="error_explanation">
         <!-- 下記は@eventのエラーの数をカウントして数値を出力 -->
-        <h3><%= @event.errors.count %>errors prohibited this event from being saved:</h3>
+        <h3><%= @event.errors.count %>件のエラーがあります。</h3>
         <!-- @eventのエラーメッセージを表示する -->
         <ul>
           <% @event.errors.full_messages.each do |message| %>

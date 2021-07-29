@@ -2,9 +2,6 @@ ja:
   activerecord:
     errors:
       messages:
-        not_saved:
-          one: エラーが発生したため %{resource} は保存されませんでした。
-          other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
         record_invalid: "バリデーションに失敗しました。: %{errors}"
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません。"
@@ -21,8 +18,8 @@ ja:
       event:
         eventname: "イベント会場名"
         address: "イベント会場住所"
-        comment: "サイトURL"
-        siteurl: "イベント会場概要欄"
+        comment: "イベント会場概要欄"
+        siteurl: "サイトURL"
         image: "イベント会場画像"
       admin_user:
         email: "メールアドレス"

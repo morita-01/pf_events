@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
-
+actions :all, except: [:edit, :update, :new]
 permit_params :name, :email, :profile_image
-#イベント会場一覧の項目を出力する
+#ユーザ一覧の項目を出力する
   index do
     #チェックボックス
     selectable_column
@@ -14,9 +14,8 @@ permit_params :name, :email, :profile_image
   end
   
   filter :name
-  
-  
-#イベント会場詳細の項目を出力
+
+#ユーザ詳細の項目を出力
   show do |object|
     attributes_table do
       row :profile_image do
@@ -26,7 +25,11 @@ permit_params :name, :email, :profile_image
       row :email
     end
   end
-#イベント会場の作成・編集項目を出力
+  
+  
+  
+  
+#ユーザの作成・編集項目を出力
   form do |f|
     f.inputs do
       #refileの書き方

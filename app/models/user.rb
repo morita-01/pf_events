@@ -5,7 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :events, dependent: :destroy
+  # has_many :events, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :event_comments, dependent: :destroy
   validates :name, presence: true, length: { maximum: 20 }

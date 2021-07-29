@@ -7,7 +7,7 @@ class Event < ApplicationRecord
     validates :eventname, presence: true, length: { maximum: 20 }
     validates :address, presence: true, length: { maximum: 50 }
     validates :comment, presence: true, length: { maximum: 100 }
-    validates :siteurl, presence: true
+    validates :siteurl, presence: true, format: /\A#{URI::regexp(%w(http https))}\z/
     validates :image, presence: true
     def favorited_by?(user)
       favorites.where(user_id: user.id).exists?

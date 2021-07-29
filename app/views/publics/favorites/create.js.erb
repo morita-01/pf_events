@@ -1,3 +1,2 @@
-alert('いいねが押せている！');
 <!--jはescape_javascriptと同じ-->
 $("#favorite-<%= @event.id %>").html("<%= j(render 'publics/events/favorite', event: @event) %>");

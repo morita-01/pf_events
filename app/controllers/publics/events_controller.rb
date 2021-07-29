@@ -2,60 +2,54 @@ class Publics::EventsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :edit, :create, :update]
     
     def index
-        @events = Event.page(params[:page]).reverse_order
+      @events = Event.page(params[:page]).reverse_order
     end
     
     def show
-        @event = Event.find(params[:id])
+      @event = Event.find(params[:id])
     end
     
     def edit
-        @event = Event.find(params[:id])
+      @event = Event.find(params[:id])
     end
     
     def new
-        @event = Event.new
+      @event = Event.new
     end
     
     #イベント会場登録処理
     def create
-        @event = Event.new(event_params)
-        if @event.save
-            redirect_to publics_events_path
-        else
-            render :new
-        end
+      @event = Event.new(event_params)
+      if @event.save
+        redirect_to publics_events_path
+      else
+        render :new
+      end
     end
     #イベント会場編集処理
     def update
-        @event = Event.find(params[:id])
-        if @event.update(event_params)
-            redirect_to publics_event_path(@event)
-        else
-            render :edit
-        end
-    end
-    #イベント会場削除処理
-    def destroy
-        @event = Event.find(params[:id])
-        @event.destroy
-        redirect_to publics_events_path
+      @event = Event.find(params[:id])
+      if @event.update(event_params)
+        redirect_to publics_event_path(@event)
+      else
+        render :edit
+      end
     end
     
     def search
-        search = params[:search]
-        word = params[:word]
-        
-        if word.empty?
-          @events = Event.page(params[:page]).reverse_order
-        else
-          @events = Event.looks(search, word).page(params[:page]).reverse_order
-        end
-        render :index
+      search = params[:search]
+      word = params[:word]
+      
+      if word.empty?
+        @events = Event.page(params[:page]).reverse_order
+      else
+        @events = Event.looks(search, word).page(params[:page]).reverse_order
+      end
+      render :index
     end
     
     private
     def event_params
-        params.require(:event).permit(:image, :eventname, :address, :siteurl, :comment)
+      params.require(:event).permit(:image, :eventname, :address, :siteurl, :comment)
     end
 end

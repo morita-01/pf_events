@@ -1,18 +1,22 @@
 class Publics::EventsController < ApplicationController
     before_action :authenticate_user!, only: [:new, :edit, :create, :update]
     
+    #イベント会場一覧
     def index
       @events = Event.page(params[:page]).reverse_order
     end
     
+    #イベント会場詳細
     def show
       @event = Event.find(params[:id])
     end
     
+    #イベント会場編集
     def edit
       @event = Event.find(params[:id])
     end
     
+    #イベント会場登録
     def new
       @event = Event.new
     end
@@ -36,10 +40,11 @@ class Publics::EventsController < ApplicationController
       end
     end
     
+    #イベント会場一覧検索
     def search
       search = params[:search]
       word = params[:word]
-      
+      #全件検索
       if word.empty?
         @events = Event.page(params[:page]).reverse_order
       else

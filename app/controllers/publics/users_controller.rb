@@ -1,17 +1,20 @@
 class Publics::UsersController < ApplicationController
   before_action :authenticate_user!
+  #マイページ表示
   def show
     @user = User.find(params[:id])
     if @user != current_user
       redirect_to root_path
     end
   end
+  #マイページ編集
   def edit
     @user = User.find(params[:id])
     if @user != current_user
       redirect_to root_path
     end
   end
+  #マイページ更新
   def update
     @user = current_user
     if @user.update(user_params)

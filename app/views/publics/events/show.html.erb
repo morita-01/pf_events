@@ -36,9 +36,12 @@
       <div id="target"></div>
       <!--div id="address" value=<%#= @event.address %>></div-->
       <!--input id="address" value="<%#= @event.address %>"-->
+      <!--住所-->
       <input id="address" type="hidden" value="<%= @event.address %>">
       <!--input type="button" value="検索" onclick="codeAddress()"-->
+      <!--地図表示の範囲設定-->
       <style>#target {height: 500px;width: 500px;}</style>
+      <!--GoogleMapApiで使用するAPIキーをマップURLに埋め込み-->
       <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['MAP_API_KEY']%>&callback=initMap" async defer></script>
     </div>
 

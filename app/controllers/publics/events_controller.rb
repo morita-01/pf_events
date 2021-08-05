@@ -25,7 +25,7 @@ class Publics::EventsController < ApplicationController
     def create
       @event = Event.new(event_params)
       if @event.save
-        redirect_to publics_events_path
+        redirect_to events_path
       else
         render :new
       end
@@ -34,7 +34,7 @@ class Publics::EventsController < ApplicationController
     def update
       @event = Event.find(params[:id])
       if @event.update(event_params)
-        redirect_to publics_event_path(@event)
+        redirect_to event_path(@event)
       else
         render :edit
       end

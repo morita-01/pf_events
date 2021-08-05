@@ -1,7 +1,7 @@
 <div class="container">
   <h1>イベント会場詳細</h1>
   <% if user_signed_in? %>
-    <%= link_to '編集', edit_publics_event_path(@event) , class: "btn btn-success" %>
+    <%= link_to '編集', edit_event_path(@event) , class: "btn btn-success" %>
   <% end %>
   <div class="row">
       <div class="col-lg-6">
@@ -57,7 +57,7 @@
           <%= render 'publics/events/eventcomment', event: @event %>
         </div>
     
-        <%= form_with model:@event_comment, url:publics_event_event_comments_path(@event.id),local: false do |f| %> 
+        <%= form_with model:@event_comment, url: event_event_comments_path(@event.id),local: false do |f| %> 
         <div class="form-group">
           <div class="field_with_errors">
             <label for="event_title">コメント</label>

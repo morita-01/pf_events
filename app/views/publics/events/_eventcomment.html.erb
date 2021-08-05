@@ -7,7 +7,7 @@
       </td>
       <% if event_comment.user == current_user %>
         <td class="d-button">
-          <%= link_to "削除", publics_event_event_comment_path(event, event_comment), method: :delete, class: "btn btn-sm btn-danger destroy_book_33853",remote: true %>
+          <%= link_to "削除", event_event_comment_path(event, event_comment), method: :delete, class: "btn btn-sm btn-danger destroy_book_33853",remote: true %>
         </td>
       <% end %>
     </tr>  

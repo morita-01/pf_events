@@ -6,5 +6,5 @@
       <tr><th>メールアドレス</th><td><%= @user.email %></td></tr>
       <tr><th>ユーザアイコン画像</th><td><%= attachment_image_tag @user, :profile_image, :fill, 300,300, fallback: "no_image.jpg" %></td></tr>
   </table>
-  <%= link_to "編集する", edit_publics_user_path(@user), class: "btn btn-success" %>
+  <%= link_to "編集する", edit_user_path(@user), class: "btn btn-success" %>
 </div>

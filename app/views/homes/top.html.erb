@@ -25,7 +25,7 @@
         <!--div class="eventall"-->
           <div class="p-2 bd-highlight">
           <div><%= attachment_image_tag event, :image, :fill, 300,300 %></div>
-          <div class="fa-lg"><%= link_to event.eventname, publics_event_path(event) %></div>
+          <div class="fa-lg"><%= link_to event.eventname, event_path(event) %></div>
           <div ><%= link_to event.siteurl, event.siteurl %></div>
           <div class="favo">♥<%= event.favorites.count %> いいね</div>
           </div>
@@ -33,7 +33,7 @@
       </div>
     <% end %>
     <div style="text-align:right">
-      <%= link_to '全てのイベント会場を⾒る', publics_events_path %>
+      <%= link_to '全てのイベント会場を⾒る', events_path %>
     </div>
   </div>
 </div>

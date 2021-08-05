@@ -9,7 +9,7 @@
   <% end %>
   
   <% if user_signed_in? %>
-    <%= link_to "イベント会場登録", new_publics_event_path , class: "btn btn-success" %></br>
+    <%= link_to "イベント会場登録", new_publics_event_path , class: "btn btn-success" %><br />
   <% end %>
   
   <% @events.each do |event| %>

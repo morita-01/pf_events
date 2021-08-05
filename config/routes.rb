@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     }   
   end
     
-  namespace :publics do
+  scope module: :publics do
     resources :users, only:[:show,:edit,:update]
     
     resources :events, only:[:index, :show, :new, :edit, :create, :update] do

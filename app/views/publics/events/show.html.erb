@@ -11,19 +11,19 @@
         <!--div class="p-2 bd-highlight"-->
         <div class="d-flex flex-column bd-highlight mb-3">
           <div class="p-2 bd-highlight">
-            <label class="fa-lg">イベント会場名</label></br>
+            <label class="fa-lg">イベント会場名</label><br />
             <%= @event.eventname %>
           </div>
           <div class="p-2 bd-highlight">
-            <label class="fa-lg">住所</label></br>
+            <label class="fa-lg">住所</label><br />
             <%= @event.address %>
           </div>
           <div class="p-2 bd-highlight">
-            <label class="fa-lg">サイトURL</label></br>
+            <label class="fa-lg">サイトURL</label><br />
             <%= link_to @event.siteurl, @event.siteurl, target: :_blank, rel: "noopener noreferrer" %>
           </div>
           <div class="p-2 bd-highlight">
-            <label class="fa-lg">イベント会場概要欄</label></br>
+            <label class="fa-lg">イベント会場概要欄</label><br />
             <%= @event.comment %>
           </div>
         </div>

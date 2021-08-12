@@ -2,12 +2,6 @@ Rails.application.routes.draw do
 
    #ネームスペースadminsのルート制御
   namespace :admins do
-    # devise_for :admin_users, controllers: {
-      #各usersフォルダ内のコントローラ指定
-      #sessions: 'admin_users/sessions',
-      #registrations: 'admin_users/registrations',
-      #passwords: 'admin_users/passwords' 
-    #}
     resources :events
   end
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -30,13 +24,14 @@ Rails.application.routes.draw do
       passwords: 'publics/users/passwords'
     }   
   end
-    
+  #scope module: :XXXXX 定義することでURLでXXXXXの部分をpath表示しなくてすむ
   scope module: :publics do
     resources :users, only:[:show,:edit,:update]
     
     resources :events, only:[:index, :show, :new, :edit, :create, :update] do
       collection do
-         get 'search' => 'events#search'
+        #新たにeventコントローラに検索(search)アクションを追加
+        get 'search' => 'events#search'
       end
       resource :favorites, only:[:create, :destroy]
       resources :event_comments, only: [:create, :destroy]
@@ -50,7 +45,4 @@ Rails.application.routes.draw do
   #post 'publics/users' => 'publics/registrations#create'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     root to:'homes#top'
-    #get 'search' => 'searches#search'
- 
-    #get 'home/about' => 'homes#about'
 end

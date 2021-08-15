@@ -1,18 +1,18 @@
 let map
 let geocoder
-let centerp = {lat: 33.60639, lng: 130.41806}
+//let centerp = {lat: 33.60639, lng: 130.41806}
 
 //マップを表示する
 function initMap(){
   geocoder = new google.maps.Geocoder()
 
   map = new google.maps.Map(document.getElementById('target'), {
-    center: centerp,
+    //center: codeAddress(),
     zoom: 17,
   });
 
   marker = new google.maps.Marker({
-    position: centerp,
+    //position: codeAddress(),
     map: map
   });
   

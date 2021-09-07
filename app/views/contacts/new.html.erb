@@ -1,4 +1,5 @@
-<%= form_for(@contact, url: confirm_path) do |f| %>
+<%#= form_for(@contact, url: confirm_path) do |f| %>
+<%= form_with model: @contact url: confirm_path, local: :true do |f| %>
 <%# form_forではなくForm_withで作成できないか？ %>
   <div class="form-group">
     <%= f.label :name, 'お名前*' %>

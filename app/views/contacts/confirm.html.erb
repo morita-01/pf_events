@@ -11,6 +11,7 @@
   </tbody>
 </table>
 
+<%#= form_with model: @contact url: confirm_path, local: :true do |f| %>
 <%= form_for(@contact) do |f| %>
   <%= f.hidden_field :name %>
   <%= f.hidden_field :email %>
